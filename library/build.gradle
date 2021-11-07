@@ -1,6 +1,13 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
+    id("com.android.library")
+    id("kotlin-android")
+    id("maven-publish")
+}
+
+ext {
+    PUBLISH_GROUP_ID = 'com.lemillion.android'
+    PUBLISH_ARTIFACT_ID = 'multi-floating-action-button'
+    PUBLISH_VERSION = '1.0.0'
 }
 
 android {
@@ -61,4 +68,17 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = PUBLISH_GROUP_ID
+                artifactId = PUBLISH_ARTIFACT_ID
+                version = PUBLISH_VERSION
+            }
+        }
+    }
 }
