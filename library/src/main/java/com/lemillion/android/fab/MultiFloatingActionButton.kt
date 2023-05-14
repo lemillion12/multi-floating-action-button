@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 
@@ -17,7 +18,9 @@ import androidx.compose.ui.unit.dp
 fun MultiFloatingActionButton(
     fabIcon: ImageVector,
     items: List<FabItem>,
-    showLabels: Boolean = true
+    showLabels: Boolean = true,
+    contentColor: Color,
+    containerColor: Color
 ) {
     var currentState by remember { mutableStateOf(MultiFabState.COLLAPSED) }
     val stateTransition: Transition<MultiFabState> =
@@ -49,13 +52,17 @@ fun MultiFloatingActionButton(
             SmallFloatingActionButtonRow(
                 item = item,
                 stateTransition = stateTransition,
-                showLabel = showLabels
+                showLabel = showLabels,
+                contentColor = contentColor,
+                containerColor = containerColor,
             )
             Spacer(modifier = Modifier.height(20.dp))
         }
-        FloatingActionButton(onClick = {
-            stateChange()
-        }) {
+        FloatingActionButton(
+            contentColor = contentColor,
+            containerColor = containerColor,
+            onClick = stateChange
+        ) {
             Icon(
                 imageVector = fabIcon,
                 contentDescription = "",

@@ -16,13 +16,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun SmallFloatingActionButtonRow(
     item: FabItem,
     showLabel: Boolean,
-    stateTransition: Transition<MultiFabState>
+    stateTransition: Transition<MultiFabState>,
+    contentColor: Color,
+    containerColor: Color
 ) {
     // Mini Fab Alpha Animation
     val alpha: Float by stateTransition.animateFloat(
@@ -62,6 +65,8 @@ fun SmallFloatingActionButtonRow(
             modifier = Modifier
                 .padding(4.dp),
             onClick = { item.onFabItemClicked() },
+            contentColor = contentColor,
+            containerColor = containerColor,
             elevation = FloatingActionButtonDefaults.elevation(
                 defaultElevation = 2.dp,
                 hoveredElevation = 4.dp
