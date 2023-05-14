@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.dp
 fun MultiFloatingActionButton(
     fabIcon: ImageVector,
     items: List<FabItem>,
-    showLabels: Boolean = true
+    showLabels: Boolean = true,
+    onStateChanged: ((state: MultiFabState) -> Unit)? = null
 ) {
     var currentState by remember { mutableStateOf(MultiFabState.COLLAPSED) }
     val stateTransition: Transition<MultiFabState> =
@@ -27,6 +28,7 @@ fun MultiFloatingActionButton(
         currentState = if (stateTransition.currentState == MultiFabState.EXPANDED) {
             MultiFabState.COLLAPSED
         } else MultiFabState.EXPANDED
+        onStateChanged?.invoke(currentState)
     }
     // Fab Rotation Animation
     val rotation: Float by stateTransition.animateFloat(
