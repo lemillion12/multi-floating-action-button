@@ -4,7 +4,7 @@
 
 <img src="/demo/demo_1.gif" width="290" align="right" hspace="0" />
 
-Android library providing an implementation of the [Material Design Floating Action Button Speed Dial](https://material.io/guidelines/components/buttons-floating-action-button.html#buttons-floating-action-button-transitions).
+An android library providing an implementation of the [Material Design Floating Action Button Speed Dial](https://material.io/guidelines/components/buttons-floating-action-button.html#buttons-floating-action-button-transitions).
 
 ## Features
 - [x] Main Floating Action Button expands into multiple Small Floating Action Buttons
