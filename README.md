@@ -59,6 +59,11 @@ fun SpeedDial() {
 }
 ```
 
+## FAQs
+Q. How do I change the color of the buttons?
+
+A. This library leverages the colors from app theme specified using [Material Design 3](https://m3.material.io/develop/android/mdc-android). The colors can be customized in the same way as for the FABs (refer: [FAB Specs](https://m3.material.io/components/floating-action-button/specs)).
+
 
 ## Credits
 This project is based on [ComposeCompanion by ComposeAcademy](https://github.com/ComposeAcademy/ComposeCompanion).
